@@ -27,8 +27,79 @@
  * - play a sound when someone clicks the "Shoot" button. You'll need to read about the <audio> element
  *   and how to use it in JS. You will also need to download a sound bite
  */
+var numshots = 0;
+var numhits = 0;
+var numRan = 0;
+
+var numshots2 = 0;
+var numhits2 = 0;
+var numRan2 = 0;
+var resetNum = 0;
 
  $(function(){
+
+$("#teamone-shoot").click(function() {
+         
+         
+               
+        numRan = Math.floor((Math.random()* 11) + 1);
+    
+        
+        if (numRan == 10) {
+        	$("html").css("background-color", "red");
+            numhits++;
+            $("#teamone-numhits").html(numhits);
+            numshots++;
+            $("#teamone-numshots").html(numshots);
+            
+        } else {
+            
+            numshots++;
+            $("#teamone-numshots").html(numshots);
+        
+        
+      	}
+  
+        });
+
+$("#teamtwo-shoot").click(function() {
+         
+               
+        numRan2 = Math.floor((Math.random()* 11) + 1);
+    
+        
+        if (numRan2 == 10) {
+        	$("html").css("background-color", "blue");
+            numhits2++;
+            $("#teamtwo-numhits").html(numhits2);
+            numshots++;
+            $("#teamtwo-numshots").html(numshots2);
+            
+            
+        } else {
+            
+            numshots2++;
+            $("#teamtwo-numshots").html(numshots2);
+        }
+        
+        });
+
+$("#reset").click(function(){
+       
+       numshots = 0;
+       numshots2 = 0;
+       numhits = 0;
+       numhits2 = 0;
+       
+       resetNum++;
+       $("html").css("background-color", "white");
+       $("#teamtwo-numshots").html(numshots2);
+       $("#teamtwo-numhits").html(numhits2);
+       $("#teamone-numhits").html(numhits);
+       $("#teamone-numshots").html(numshots);
+       $("#num-resets").html(resetNum);	
+
+   });
 
 
 
